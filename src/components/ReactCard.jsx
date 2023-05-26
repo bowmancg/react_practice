@@ -6,6 +6,7 @@ function ReactCard(props) {
         <div className="ReactCard" id="reactcard">
             <div className="card">
             <ReactDate date={props.date} />
+            <h3>{props.title}</h3>
             </div>
         </div>
     )
