@@ -1,14 +1,14 @@
 import React from "react";
 
 function ReactDate(props) {
-    const month = props.date.toLocaleString('en-US', { month: 'long'})
-    const day = props.date.toLocaleString('en-US', { day: '2-digit' })
-    const year = props.date.getFullYear()
+    const month = props.date.toLocaleString('en-US', { month: 'long'});
+    const day = props.date.toLocaleString('en-US', { day: '2-digit' });
+    const year = props.date.getFullYear();
     return (
-        <div className="ReactDate" id="reactdate">
-            <div>{month}</div>
-            <div>{year}</div>
-            <div>{day}</div>
+        <div>
+            <p className="fs-3">{year}</p>
+            <p className="fs-3">{month}</p>
+            <p className="fs-3">{day}</p>
         </div>
     )
 }

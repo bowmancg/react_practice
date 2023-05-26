@@ -9,12 +9,10 @@ import ReactCard from './components/ReactCard';
 function App() {
   const cards = [
     {
-      id: '1a',
       title: 'React 1',
       date: new Date(2021, 2, 20)
     },
     {
-      id: '1b',
       title: 'React 2',
       date: new Date(2021, 5, 12)
     }
@@ -37,13 +35,11 @@ function App() {
         >
           Learn React
         </a>
-        <div className='row'>
-          <ReactCard 
+        <div className='row mt-3'>
+          <ReactCard
           title={cards[0].title}
           date={cards[0].date}
           />
-        </div>
-        <div className='row'>
           <ReactCard 
           title={cards[1].title}
           date={cards[1].date}
