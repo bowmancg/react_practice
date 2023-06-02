@@ -10,7 +10,7 @@ function ReactCard(props) {
     return (
         <div className="mb-3" id="reactcard">
             <div className="card text-dark">
-            <h3>{props.title}</h3>
+            <h3>{title}</h3>
             <button className="rounded-pill bg-secondary" onClick={clickHandler}>Click</button>
             <ReactDate date={props.date} />
             </div>
