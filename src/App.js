@@ -5,6 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import Navbar from "./components/Navbar";
 import './App.css';
 import ReactCard from './components/ReactCard';
+import ReactForm from './components/ReactForm';
 
 function App() {
   const cards = [
@@ -23,6 +24,7 @@ function App() {
         <Navbar />
       </header>
       <main className="App-header">
+        <ReactForm/>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
