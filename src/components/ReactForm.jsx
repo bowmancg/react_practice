@@ -31,6 +31,13 @@ const ReactForm = (props) => {
     // console.log(cardData)
     // setEnteredTitle('')
     // setEnteredDate('')
+    const cardData = {
+        title: enteredTitle,
+        date: enteredDate
+    }
+    props.onSaveCardData(cardData)
+    setEnteredTitle('')
+    setEnteredDate('')
     return (
         <form onSubmit={submitHandler}>
             <h3 className="text-center">React Form</h3>
