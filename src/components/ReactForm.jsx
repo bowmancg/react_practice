@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-const ReactForm = () => {
+const ReactForm = (props) => {
+
+// example of destructuring
+    const {
+        onSubmit
+    } = props
+
     const [enteredTitle, setEnteredTitle] = useState('')
     const [enteredDate, setEnteredDate] = useState('')
     // const [userInput, setUserInput] = useState({
@@ -14,12 +20,23 @@ const ReactForm = () => {
     const dateChangeHandler = (event) => {
         setEnteredDate(event.target.value)
     }
+    const submitHandler = (event) => {
+        event.preventDefault()
+
+        onSubmit({
+            title: enteredTitle,
+            date: new Date(enteredDate)
+        })
+    }
+    // console.log(cardData)
+    // setEnteredTitle('')
+    // setEnteredDate('')
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <h3 className="text-center">React Form</h3>
             <div className="mb-3">
                 <label>Title</label>
-                <input type="text" onChange={titleChangeHandler} />
+                <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
             </div>
             <div className="mb-3">
                 <p className="fs-3">{enteredTitle}</p>
@@ -27,8 +44,9 @@ const ReactForm = () => {
             </div>
             <div className="mb-3">
                 <label>Date</label>
-                <input type="date" onChange={dateChangeHandler} />
+                <input type="date" value={enteredDate} onChange={dateChangeHandler} />
             </div>
+            <button type="submit" className="btn btn-success">Add</button>
         </form>
     )
 }

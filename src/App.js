@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import Navbar from "./components/Navbar";
@@ -8,7 +8,7 @@ import ReactCard from './components/ReactCard';
 import ReactForm from './components/ReactForm';
 
 function App() {
-  const cards = [
+  const [cards, setCards] = useState([
     {
       title: 'React 1',
       date: new Date(2021, 2, 20)
@@ -17,14 +17,20 @@ function App() {
       title: 'React 2',
       date: new Date(2021, 5, 12)
     }
-  ]
+  ])
+  const handleFormSubmit = (formData) => {
+    // example of spreading
+    const newCards = [...cards]
+    newCards.push(formData)
+    setCards(newCards)
+  }
   return (
     <div className="App">
       <header>
         <Navbar />
       </header>
       <main className="App-header">
-        <ReactForm/>
+        <ReactForm onSubmit={handleFormSubmit}/>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -38,14 +44,7 @@ function App() {
           Learn React
         </a>
         <div className='row mt-3'>
-          <ReactCard
-          title={cards[0].title}
-          date={cards[0].date}
-          />
-          <ReactCard 
-          title={cards[1].title}
-          date={cards[1].date}
-          />
+          {cards.map((card, i) => <ReactCard key={i} { ...card}/>)}
         </div>
       </main>
     </div>
