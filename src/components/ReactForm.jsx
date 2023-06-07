@@ -27,17 +27,15 @@ const ReactForm = (props) => {
             title: enteredTitle,
             date: new Date(enteredDate)
         })
+        // const cardData = {
+        //     title: enteredTitle,
+        //     date: new Date(enteredDate)
+        // }
+        // props.onSaveCardData(cardData)
+        // setEnteredTitle('')
+        // setEnteredDate('')
     }
-    // console.log(cardData)
-    // setEnteredTitle('')
-    // setEnteredDate('')
-    const cardData = {
-        title: enteredTitle,
-        date: enteredDate
-    }
-    props.onSaveCardData(cardData)
-    setEnteredTitle('')
-    setEnteredDate('')
+    
     return (
         <form onSubmit={submitHandler}>
             <h3 className="text-center">React Form</h3>
@@ -51,7 +49,7 @@ const ReactForm = (props) => {
             </div>
             <div className="mb-3">
                 <label>Date</label>
-                <input type="date" value={enteredDate} onChange={dateChangeHandler} />
+                <input type="date"  value={enteredDate} onChange={dateChangeHandler} />
             </div>
             <button type="submit" className="btn btn-success">Add</button>
         </form>

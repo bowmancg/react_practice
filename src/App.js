@@ -6,8 +6,10 @@ import Navbar from "./components/Navbar";
 import './App.css';
 import ReactCard from './components/ReactCard';
 import ReactForm from './components/ReactForm';
+import CardFilter from './components/CardFilter';
 
 function App() {
+  const [filteredYear, setFilteredYear] = useState('')
   const [cards, setCards] = useState([
     {
       title: 'React 1',
@@ -23,6 +25,9 @@ function App() {
     const newCards = [...cards]
     newCards.push(formData)
     setCards(newCards)
+  }
+  const filterChangeHandler = selectedYear => {
+    setFilteredYear(selectedYear)
   }
   return (
     <div className="App">
@@ -43,8 +48,16 @@ function App() {
         >
           Learn React
         </a>
+        <div className='row'>
+          <CardFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
+        </div>
         <div className='row mt-3'>
-          {cards.map((card, i) => <ReactCard key={i} { ...card}/>)}
+          {cards.filter((card) => {
+            if (filteredYear === '') {
+              return true
+            }
+            return card.date.getFullYear() == filteredYear
+          }).map((card, i) => <ReactCard key={i} { ...card}/>)}
         </div>
       </main>
     </div>
