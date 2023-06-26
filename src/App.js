@@ -18,6 +18,10 @@ function App() {
     {
       title: 'React 2',
       date: new Date(2021, 5, 12)
+    },
+    {
+      title: 'React 3',
+      date: new Date(2019, 8, 29)
     }
   ])
   const handleFormSubmit = (formData) => {
